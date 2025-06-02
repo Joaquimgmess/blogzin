@@ -37,7 +37,13 @@ export default function PostPage() {
 
   return (
     <div className="container mx-auto p-4 md:p-8 max-w-3xl">
-      <Button variant="outline" size="sm" className="mb-6" onClick={() => navigate(-1)}>
+      <Button 
+        variant="outline" 
+        size="sm" 
+        className="mb-6" 
+        onClick={() => navigate(-1)}
+        aria-label="Voltar para a página anterior"
+      >
         <ArrowLeftIcon className="mr-2 h-4 w-4" />
         Voltar
       </Button>
@@ -77,7 +83,7 @@ export function ErrorBoundary() {
         <p className="text-muted-foreground mb-6">
           A curiosidade com o ID "{params.postId}" não existe ou foi removida.
         </p>
-        <Link to="/" className="text-primary hover:underline">
+        <Link to="/" className="text-primary hover:underline" aria-label="Voltar para a página inicial">
           Voltar para a Página Inicial
         </Link>
       </div>
@@ -90,7 +96,7 @@ export function ErrorBoundary() {
       <p className="text-muted-foreground mb-6">
         Não foi possível carregar o post. Tente novamente mais tarde.
       </p>
-      <Link to="/" className="text-primary hover:underline">
+      <Link to="/" className="text-primary hover:underline" aria-label="Voltar para a página inicial">
         Voltar para a Página Inicial
       </Link>
     </div>

@@ -33,7 +33,11 @@ export default function Home() {
       {posts.length === 0 ? (
         <div className="text-center text-muted-foreground">
           <p className="text-xl mb-4">Ainda não há nenhuma curiosidade por aqui!</p>
-          <Link to="/gerar" className={buttonVariants({ variant: "default" }) + " text-lg"}>
+          <Link
+            to="/gerar"
+            className={buttonVariants({ variant: "default" }) + " text-lg"}
+            aria-label="Gerar a Primeira Curiosidade"
+          >
             Gerar a Primeira Curiosidade
           </Link>
         </div>
@@ -43,7 +47,7 @@ export default function Home() {
             <Card key={post.id} className="flex flex-col">
               <CardHeader>
                 <CardTitle className="hover:text-primary">
-                  <Link to={`/posts/${post.id}`}>{post.title}</Link>
+                  <Link to={`/posts/${post.id}`} aria-label={`Ler a curiosidade: ${post.title}`}>{post.title}</Link>
                 </CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">

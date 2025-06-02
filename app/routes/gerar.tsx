@@ -80,7 +80,12 @@ export default function Gerar() {
       <Card className="mb-8">
         <CardContent className="p-6">
           <Form method="post" className="flex justify-center">
-            <Button size="lg" type="submit" disabled={isSubmitting}>
+            <Button 
+              size="lg" 
+              type="submit" 
+              disabled={isSubmitting}
+              aria-label={isSubmitting ? "Gerando curiosidade, por favor aguarde" : "Gerar nova curiosidade"}
+            >
               {isSubmitting ? "Gerando, aguarde..." : "Gerar Novo Post"}
             </Button>
           </Form>
@@ -88,7 +93,11 @@ export default function Gerar() {
       </Card>
 
       {actionData?.newPost && (
-        <Card className="bg-green-50 border-green-200 animate-in fade-in">
+        <Card 
+          className="bg-green-50 border-green-200 animate-in fade-in"
+          role="status"
+          aria-live="polite"
+        >
           <CardHeader>
             <CardTitle>{actionData.newPost.title}</CardTitle>
           </CardHeader>
@@ -99,7 +108,11 @@ export default function Gerar() {
       )}
 
       {actionData?.error && (
-        <Card className="bg-red-50 border-red-200 animate-in fade-in">
+        <Card 
+          className="bg-red-50 border-red-200 animate-in fade-in"
+          role="status"
+          aria-live="polite"
+        >
           <CardHeader>
             <CardTitle className="text-red-800">Ocorreu um Erro</CardTitle>
           </CardHeader>
