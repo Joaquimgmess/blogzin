@@ -3,7 +3,7 @@
 Este projeto foi construído com uma stack de tecnologias modernas, focada em performance, escalabilidade e uma ótima experiência de desenvolvimento.
 
 | Categoria | Tecnologia |
-| :--- | :--- | :--- |
+
 | **Framework** | **Remix** | 
 
 | **Front-End** | **React & TypeScript** |
