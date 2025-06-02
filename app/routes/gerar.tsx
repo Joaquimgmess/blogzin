@@ -8,6 +8,11 @@ import { json } from "@remix-run/node";
 import prisma from "prisma/prisma";
 import type { Route } from "./+types/gerar";
 
+interface AiGeneratedPost {
+  title: string;
+  content: string;
+}
+
 export async function action({ request }: Route.ActionArgs) {
   try {
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY!);
@@ -31,7 +36,7 @@ export async function action({ request }: Route.ActionArgs) {
     const responseText = result.response.text();
     
     const cleanJsonString = responseText.replace(/```json|```/g, "").trim();
-    const aiGeneratedContent = JSON.parse(cleanJsonString);
+    const aiGeneratedContent: AiGeneratedPost = JSON.parse(cleanJsonString);
     const { title, content } = aiGeneratedContent;
 
     if (!title || !content) {
@@ -43,11 +48,11 @@ export async function action({ request }: Route.ActionArgs) {
         title: title,
         content: content,
         originalText: originalFactText,
-        source: "uselessfacts.jsph.pl + Gemini",
+        source: "uselessfacts.jsph.pl",
       },
     });
 
-    return ({ newPost });
+    return json({ newPost });
 
   } catch (error: any) {
     console.error("Erro no processo de geração:", error);
