@@ -26,14 +26,18 @@ const config: runtime.GetPrismaClientConfig = {
       "fromEnvVar": null
     },
     "config": {
-      "moduleFormat": "esm",
-      "engineType": "library"
+      "engineType": "library",
+      "moduleFormat": "esm"
     },
     "binaryTargets": [
       {
         "fromEnvVar": null,
         "value": "debian-openssl-3.0.x",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-3.0.x"
       }
     ],
     "previewFeatures": [
@@ -58,8 +62,8 @@ const config: runtime.GetPrismaClientConfig = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider        = \"prisma-client\"\n  output          = \"../app/generated/prisma\"\n  previewFeatures = [\"driverAdapters\"]\n  moduleFormat    = \"esm\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n}\n\nmodel Post {\n  id           String   @id @default(cuid())\n  title        String\n  content      String\n  originalText String   @unique\n  source       String\n  createdAt    DateTime @default(now())\n}\n",
-  "inlineSchemaHash": "192b268b4b3c0aa1335c1e643f1168db587ed6a2173af34b2484a07bcfdc1505",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider        = \"prisma-client\"\n  output          = \"../app/generated/prisma\"\n  binaryTargets   = [\"native\", \"rhel-openssl-3.0.x\"]\n  previewFeatures = [\"driverAdapters\"]\n  moduleFormat    = \"esm\"\n  engineType      = \"library\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n}\n\nmodel Post {\n  id           String   @id @default(cuid())\n  title        String\n  content      String\n  originalText String   @unique\n  source       String\n  createdAt    DateTime @default(now())\n}\n",
+  "inlineSchemaHash": "78d9f689e71baaccd8d57a3e59db470926a480f172b4ae9e46cb4c2ae6536657",
   "copyEngine": true,
   "runtimeDataModel": {
     "models": {},
