@@ -48,7 +48,7 @@ export async function action({ request }: Route.ActionArgs) {
         title: title,
         content: content,
         originalText: originalFactText,
-        source: "uselessfacts.jsph.pl",
+        source: "uselessfacts",
       },
     });
 
