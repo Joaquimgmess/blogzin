@@ -7,8 +7,8 @@ import { buttonVariants } from "~/components/ui/button";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Blogzin - Curiosidades Divertidas" },
-    { name: "description", content: "Explore fatos interessantes e curiosidades inuteis" },
+    { title: "Blogzin - Curiosidades inúteis " },
+    { name: "description", content: "Explore fatos interessantes e curiosidades inúteis" },
   ];
 }
 
@@ -45,7 +45,6 @@ export default function Home() {
                 <CardTitle className="hover:text-primary">
                   <Link to={`/posts/${post.id}`}>{post.title}</Link>
                 </CardTitle>
-                <CardDescription>Fonte: {post.source}</CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
                 <p className="line-clamp-4 text-sm text-muted-foreground">

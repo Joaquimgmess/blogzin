@@ -71,7 +71,7 @@ export default function Gerar() {
   return (
     <div className="p-4 md:p-8 max-w-2xl mx-auto">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold tracking-tight">Gerador de Posts com IA</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Gerador de curiosidades</h1>
         <p className="text-muted-foreground mt-2">
           Clique no botão para criar uma nova curiosidade.
         </p>
