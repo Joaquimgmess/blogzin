@@ -6,3 +6,6 @@
 /build/
 
 /generated/prisma
+
+*storybook.log
+storybook-static
