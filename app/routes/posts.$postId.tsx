@@ -50,7 +50,14 @@ export default function PostPage() {
       <Card>
         <CardHeader>
           <CardTitle className="text-3xl font-bold">{post.title}</CardTitle>
-          <CardDescription>Fonte: {post.source}</CardDescription>
+          <CardDescription>
+            Fonte: {post.source}
+            {post.category && (
+              <span className="ml-2 px-2 py-0.5 bg-gray-100 text-gray-800 text-xs font-medium rounded-full">
+                Categoria: {post.category}
+              </span>
+            )}
+          </CardDescription>
         </CardHeader>
         <CardContent className="prose dark:prose-invert max-w-none">
           <p className="text-lg leading-relaxed">{post.content}</p>
