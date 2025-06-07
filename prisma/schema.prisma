@@ -16,5 +16,6 @@ model Post {
   content      String
   originalText String   @unique
   source       String
+  category     String?  // Added category field - optional
   createdAt    DateTime @default(now())
 }
