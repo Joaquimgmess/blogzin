@@ -27,6 +27,9 @@ export const LoggedIn: Story = {
     await userEvent.click(loginButton);
     await expect(loginButton).not.toBeInTheDocument();
 
+    const welcomeMessage = canvas.getByText(/Welcome, Jane Doe!/i);
+    await expect(welcomeMessage).toBeInTheDocument();
+
     const logoutButton = canvas.getByRole('button', { name: /Log out/i });
     await expect(logoutButton).toBeInTheDocument();
   },
